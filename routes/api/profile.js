@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
+
+const { check, validationResult } = require('express-validator/check');
+const request = require('request');
+const { response } = require('express');
+
+const config = require('config');
+
 const auth = require('../../middleware/auth');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
-const { check, validationResult } = require('express-validator/check');
-const request = require('request');
-const config = require('config');
-const { response } = require('express');
 
 // @route   GET api/profile/me
 // @desc    GET current user profile
